@@ -1,0 +1,83 @@
+\documentclass[12pt]{article}
+\usepackage[pdftex,pagebackref,letterpaper=true,colorlinks=true,pdfpagemode=none,urlcolor=blue,linkcolor=blue,citecolor=blue,pdfstartview=FitH]{hyperref}
+
+\usepackage{amsmath,amsfonts}
+\usepackage{graphicx}
+\usepackage{color}
+
+
+\setlength{\oddsidemargin}{0pt}
+\setlength{\evensidemargin}{0pt}
+\setlength{\textwidth}{6.0in}
+\setlength{\topmargin}{0in}
+\setlength{\textheight}{8.5in}
+
+\setlength{\parindent}{0in}
+\setlength{\parskip}{5px}
+
+\input{macrosblog}
+
+\begin{document}
+    虽然傅里叶早在18世纪就提出了将函数用三角级数表示以求解热方程的想法，但这一方法的有效性一直悬而未决。
+虽然有部分结果，但条件太过严格。事实上，直到Carleson的定理横空出世前，人们对此表示怀疑并且连
+连续函数的情况都不明了。
+    先给出Carleson-Hunt定理的一个版本：
+    设U是任何包含原点的有界开集, 则对于f∈L2, 当k→∞时(χ2kUf^)∨几乎处处收敛至f. 如果U是内含原点的方体, 则上述结论可以推广到f∈Lp, 1<p<∞.
+
+\section{当我们在谈论收敛时是指什么？}
+    微积分中级数的收敛就是部分和有极限，对于$f\in L^1$,我们定义其傅里叶系数及级数为：
+    \begin{eqnarray*}
+\hat{f}(k)=\int_{0}^{1} f(x) e^{-2 \pi i k x} d x
+\quad \sum_{k=-\infty}^{\infty} \hat{f}(k) e^{2 \pi i k x}
+    \end{eqnarray*}
+    然后我们就可以定义傅里叶级数的部分和：
+    \begin{equation}
+S_{N} f(x)=\sum_{k=-N}^{N} \hat{f}(k) e^{2 \pi i k x}
+\end{equation}
+    基于实分析的技术，我们考虑两种收敛：
+    \begin{equation}
+\begin{array}{l}{\text { (1) Does } \lim _{N \rightarrow \infty}\left\|S_{N} f-f\right\|_{p}=0 \text { for } f \in L^{p}(\mathbb{T}) ?} \\ {\text { (2) Does } \lim _{N \rightarrow \infty} S_{N} f(x)=f(x) \text { almost everywhere if } f \in L^{p}(\mathbb{T}) ?}\end{array}
+\end{equation}
+前者称为范数收敛，后者为逐点收敛
+
+\section{历史的玩笑}
+    1915年，Lusin 猜想对任意函数$f\in L^2[-\Pi,\Pi]$,其傅里叶级数几乎处处收敛到原函数。
+    1926年，Kolmogorov 证明存在函数$f\in L^1[-\Pi,\Pi]$,傅里叶级数处处发散。
+    1927年，Riesz 证明对任意函数$f\in L^p[-\Pi,\Pi](1<p<\infty)$,傅里叶级数$L^p$范收敛到原函数。
+    （这个是Hilbert变换的一个推论）
+    1966年，Carleson 证明了 Lusin 猜想。同年， Kathane 和 katznelson 证明存在在每个零测集上傅里叶级
+数发散的函数。
+    1968年，Hunt 把 Carleson的定理推广到$L^p(1<p<\infty)$。
+    人们兴高采烈以为高维也唾手可得时反例就来了。
+    1971年，Fefferman 在两篇文章中利用Kakeya set\em{Kakeya set是$\R^n$中一个包含所有
+    方向长度为1线段的集合，它的测度下限为0，它的维度至今仍是公开问题}对\eqref{eq:1}给出了反例，证明了\eqref{eq:2},
+    \eqref{eq:3}依然公开，即使是现在考虑的比\eqref{eq:3}更光滑的Boncher-Riesz也搞不定。
+\begin{equation}\label{eq:1}f(x, y)=\lim _{M, N \rightarrow \infty} \sum_{|m| \leq M_{i}|n| \leq N} a_{m n} e^{i(m x+n y)}\end{equation}
+\begin{equation}\label{eq:2}f(x, y)=\lim _{M \rightarrow \infty} \sum_{|m| .} \sum_{|n| \leq M} a_{m n} e^{i(m x+n y)}\end{equation}
+\begin{equation}\label{eq:3}f(x, y)=\lim _{R \rightarrow \infty} \sum_{m^{2}+n^{2} \leq R} a_{m n} e^{i(m x+n y)}\end{equation}
+\section{充分与必要}
+\begin{lemma}
+    $S_{N}f(x)$范数收敛和逐点收敛到$f(x)$的充要条件分别为
+    $$
+\left\|S_{N} f\right\|_{p} \leq C_{p}\|f\|_{p}
+$$
+$$
+\left\|\sup_N|S_{N} f|\right\|_{p} \leq C_{p}\|f\|_{p}
+$$
+\begin{proof}
+\end{lemma}
+必要性来自以下定理：
+\begin[一致有界定理]{lemma}
+    令$x$为 Banach 空间，$Y$为 赋范向量空间且$(T_i)_{i\in I}为一族$x$到$Y$的连续线性算子，假设
+    \[\sup_{i\in I}\|T_i(x)<\infty\ \forall x\in X\]
+    则
+    \[\sup_{i\in I}\|T_i\|<\infty]
+    即$T_i$为有界算子
+\end{lemma}
+注意$\|$T_i\|=\sup_{\|x\|_X\leq 1\\x\in X}
+我们来处理充分性，为简便计，只说明逐点收敛情况，
+定义
+\[L_f:=\limsup_N\rightarrow\infty\|f(x)-S_N f(x)\|\rightarrow 0\ a.e.\]
+傅里叶级数对施瓦茨函数成立，我们取施瓦茨函数$g$使得$\|f-g\|\leq\epsilon$
+有：\[L_f\leq\|f-g\|+\mathcal{C}(f-g)\]
+    \end{document}
