@@ -22,7 +22,7 @@
 虽然有部分结果，但条件太过严格。事实上，直到Carleson的定理横空出世前，人们对此表示怀疑并且连
 连续函数的情况都不明了。
     先给出Carleson-Hunt定理的一个版本：
-    设U是任何包含原点的有界开集, 则对于f∈L2, 当k→∞时(χ2kUf^)∨几乎处处收敛至f. 如果U是内含原点的方体, 则上述结论可以推广到f∈Lp, 1<p<∞.
+    设U是任何包含原点的有界开集, 则对于$f\in L^2, 当 k\rightarrow\infty时，(\xi_{2kU}f\hat)\check$几乎处处收敛至f. 如果U是内含原点的方体, 则上述结论可以推广到$f\in L^p,1<p<\infty$。
 
 \section{当我们在谈论收敛时是指什么？}
     微积分中级数的收敛就是部分和有极限，对于$f\in L^1$,我们定义其傅里叶系数及级数为：
@@ -64,7 +64,6 @@ $$
 $$
 \left\|\sup_N|S_{N} f|\right\|_{p} \leq C_{p}\|f\|_{p}
 $$
-\begin{proof}
 \end{lemma}
 必要性来自以下定理：
 \begin[一致有界定理]{lemma}
@@ -74,7 +73,7 @@ $$
     \[\sup_{i\in I}\|T_i\|<\infty]
     即$T_i$为有界算子
 \end{lemma}
-注意$\|$T_i\|=\sup_{\|x\|_X\leq 1\\x\in X}
+注意$\|T_i\|=\sup_{\|x\|_X\leq 1\\x\in X}$
 我们来处理充分性，为简便计，只说明逐点收敛情况，
 定义
 \[L_f:=\limsup_N\rightarrow\infty\|f(x)-S_N f(x)\|\rightarrow 0\ a.e.\]
